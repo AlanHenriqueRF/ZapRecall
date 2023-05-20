@@ -1,5 +1,5 @@
 import Logo from './components/Logo'
-import Perguntas from './components/Perguntas'
+import Perguntas from './components/perguntas/Perguntas'
 import Footer from './components/Footer'
 import styled from 'styled-components'
 
