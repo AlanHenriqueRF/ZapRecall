@@ -14,10 +14,12 @@ const Logostyle = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top:15px;
+    margin-bottom:35px;
     img {
         width: 52px;
         height: 60px;
-        /* margin-right:14px; */
+        margin-right:14px;
     }
     h1 {
         font-family: 'Righteous', cursive;
@@ -26,4 +28,5 @@ const Logostyle = styled.div`
         font-weight: 400;
         text-align:center;
     }
+    
 `

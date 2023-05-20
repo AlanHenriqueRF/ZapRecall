@@ -4,63 +4,77 @@ import styled from 'styled-components'
 export default function Perguntas() {
     return (
         <Container_rolling>
-        <Questions>
-            <Question>
-                <h2>Pergunta 1</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-            <Question>
-                <h2>Pergunta 2</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-            <Question>
-                <h2>Pergunta 3</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-            <Question>
-                <h2>Pergunta 4</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-            <Question>
-                <h2>Pergunta 4</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-            <Question>
-                <h2>Pergunta 4</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-            <Question>
-                <h2>Pergunta 4</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-            <Question>
-                <h2>Pergunta 4</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-            <Question>
-                <h2>Pergunta 4</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-            <Question>
-                <h2>Pergunta 4</h2>
-                <img src={seta} alt="seta" />
-            </Question>
-        </Questions>
+            <Questions>
+                <Question>
+                    <h2>Pergunta 1</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+                <Question>
+                    <h2>Pergunta 2</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+                <Question>
+                    <h2>Pergunta 3</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+                <Question>
+                    <h2>Pergunta 4</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+                <Question>
+                    <h2>Pergunta 4</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+                <Question>
+                    <h2>Pergunta 4</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+                <Question>
+                    <h2>Pergunta 4</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+                <Question>
+                    <h2>Pergunta 4</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+                <Question>
+                    <h2>Pergunta 4</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+                <Question>
+                    <h2>Pergunta 4</h2>
+                    <img src={seta} alt="seta" />
+                </Question>
+            </Questions>
         </Container_rolling>
     )
 }
 
-const Container_rolling= styled.div`
-    overflow:scroll;
+const Container_rolling = styled.div`
+    overflow-y:scroll;
     height:460px;
-    
-    `
+    &::-webkit-scrollbar {
+    width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: rgb(174, 184, 184);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(109, 109, 109);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+    }
+`
 
 const Questions = styled.ul`
     display: flex;
     flex-direction:column;
     align-items:center;
-    overflow:scroll;
+    margin-right:12px;
 `
 
 const Question = styled.li`
@@ -71,7 +85,8 @@ const Question = styled.li`
     display: flex;
     justify-content: space-between;
     align-items:center;
-    margin: 13px 0px;
+    margin: 0px 0px 25px 0px ;
+    box-shadow: 0 4px 5px 0px rgba(0, 0, 0, 0.15);
     h2{
         font-family: 'Recursive', sans-serif;
         font-size:16px;

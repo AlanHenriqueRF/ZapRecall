@@ -33,10 +33,10 @@ const Menu_box = styled.div`
   height: 100%;
   max-width: 375px;
   max-height: 667px;
-  background-color:red;
+  /* background-color:red; */
   display:flex;
   flex-direction:column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items:center;
 
 `
