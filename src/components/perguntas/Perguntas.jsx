@@ -15,7 +15,7 @@ export default function Perguntas() {
 
 const Container_rolling = styled.div`
     overflow-y:scroll;
-    height:460px;
+    height:68.97%;
     &::-webkit-scrollbar {
     width: 3px;
     }

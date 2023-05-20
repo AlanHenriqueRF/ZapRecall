@@ -31,9 +31,6 @@ const Container = styled.div`
 const Menu_box = styled.div`
   width: 100%;
   height: 100%;
-  max-width: 375px;
-  max-height: 667px;
-  /* background-color:red; */
   display:flex;
   flex-direction:column;
   justify-content: space-between;

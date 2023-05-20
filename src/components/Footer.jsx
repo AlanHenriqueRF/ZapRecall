@@ -9,7 +9,7 @@ export default function Footer(){
 }
 
 const Conclusionbar = styled.div`
-    height:70px;
+    height:10.49%;
     width:100%;
     background-color:#FFFFFF;
     display:flex;
