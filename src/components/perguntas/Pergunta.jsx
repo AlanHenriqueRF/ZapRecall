@@ -9,6 +9,8 @@ import correto from '../../assets/icone_certo.png'
 export default function Pergunta({ pergunta, index ,setContagem,contagem}) {
     
     const imagens = [incorreto, parcialmente, correto]
+
+    let [test,setTest] = useState("play-btn")
     
     let [tamanho,setTamanho] = useState('20px');
     let [color,setColor] = useState('#333333')
@@ -34,6 +36,7 @@ export default function Pergunta({ pergunta, index ,setContagem,contagem}) {
 
     function aparecepergunta(imagem) {
         if (imagem === seta || imagem === virar) {
+            imagem===seta ? setTest("turn-btn"):setTest("play-btn")
             if (aparece[0] === false && aparece[1] === false) {
                 setDirecao('column')
                 setEspaco('space-evenly')
@@ -52,7 +55,7 @@ export default function Pergunta({ pergunta, index ,setContagem,contagem}) {
         }
 
     }
-
+    console.log(test)
     function verSeErrou() {
         const novo_indice = 0;
         const novo_aparece = [true, false]
@@ -65,6 +68,7 @@ export default function Pergunta({ pergunta, index ,setContagem,contagem}) {
         setAparece(novo_aparece)
         setIndice(novo_indice)
         setContagem(contagem+1)
+        setTest("no-icon")
 
     }
 
@@ -80,6 +84,7 @@ export default function Pergunta({ pergunta, index ,setContagem,contagem}) {
         setAparece(novo_aparece)
         setIndice(novo_indice)
         setContagem(contagem+1)
+        setTest("partial-icon")
     }
 
     function verSeAcertou() {
@@ -94,13 +99,17 @@ export default function Pergunta({ pergunta, index ,setContagem,contagem}) {
         setAparece(novo_aparece)
         setIndice(novo_indice)
         setContagem(contagem+1)
+        setTest("zap-icon")
     }
     return (
         <Question aparece={aparece} tamanho={tamanho} color={color} decoracao={decoracao} direcao={direcao} espaco={espaco} data-test="flashcard">
 
             <h2>{aparece[0] ? `Pergunta ${index + 1}` : (aparece[1] ? pergunta.answer : pergunta.question)}</h2>
 
-            {foto ? <img src={indice === -1 ? foto : imagens[indice]} onClick={() => aparecepergunta(foto)} alt="seta" /> : <Botoes data-test="play-btn"><button onClick={verSeErrou}>Não lembrei</button> <button onClick={verSeQuase}>Quase não lembrei</button> <button onClick={verSeAcertou}>Zap!</button></Botoes>}
+            {foto ? <img src={indice === -1 ? foto : imagens[indice]} onClick={() => aparecepergunta(foto)} alt="seta" data-test={test}/> : <Botoes>
+                <button onClick={verSeErrou} data-test="no-btn">Não lembrei</button> 
+                <button onClick={verSeQuase} data-test="partial-btn">Quase não lembrei</button> 
+                <button onClick={verSeAcertou} data-test="zap-btn">Zap!</button></Botoes>}
 
         </Question>
     )
