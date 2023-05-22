@@ -2,18 +2,20 @@ import Logo from './components/Logo'
 import Perguntas from './components/perguntas/Perguntas'
 import Footer from './components/Footer'
 import styled from 'styled-components'
+import { useState } from 'react'
 
 export default function App() {
-
+  const [contagem,setContagem] = useState(0)
+  // console.log(setContagem)
   return (
     <Container>
       <Menu_box>
 
         <Logo />
 
-        <Perguntas />
+        <Perguntas contagem = {contagem} setContagem ={setContagem}/>
 
-        <Footer />
+        <Footer contagem = {contagem} />
 
       </Menu_box>
     </Container>

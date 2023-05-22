@@ -1,9 +1,10 @@
 import styled from "styled-components"
+import deck from "../Deck" 
 
-export default function Footer(){
+export default function Footer({contagem}){
     return (
         <Conclusionbar>
-            <h3>0/4 CONCLUÍDOS</h3>
+            <h3>{contagem}/{deck.length} CONCLUÍDOS</h3>
         </Conclusionbar>
     )
 }

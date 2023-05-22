@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import deck from '../../Deck'
 import Pergunta from './Pergunta'
 
-export default function Perguntas() {
+export default function Perguntas({contagem, setContagem}) {
     return (
         <Container_rolling>
             <Questions>
 
-                {deck.map((pergunta, index) => <Pergunta key={index} pergunta={pergunta} index={index} />)}
+                {deck.map((pergunta, index) => <Pergunta key={index} contagem= {contagem} setContagem={setContagem} pergunta={pergunta} index={index} />)}
             </Questions>
         </Container_rolling>
     )

@@ -6,20 +6,20 @@ import incorreto from '../../assets/icone_erro.png'
 import parcialmente from '../../assets/icone_quase.png'
 import correto from '../../assets/icone_certo.png'
 
-let tamanho = '20px'
-let color = '#333333'
-let decoracao = 'normal'
-let direcao = 'normal'
-let espaco = 'space-between'
-let margem = '0px'
-
-export default function Pergunta({ pergunta, index }) {
+export default function Pergunta({ pergunta, index ,setContagem,contagem}) {
+    
     const imagens = [incorreto, parcialmente, correto]
+    
+    let [tamanho,setTamanho] = useState('20px');
+    let [color,setColor] = useState('#333333')
+    let [decoracao,setDecoracao] = useState('normal')
+    let [direcao,setDirecao] = useState('normal')
+    let [espaco,setEspaco] = useState('space-between')
+
+
     const [indice, setIndice] = useState(-1)
     const [aparece, setAparece] = useState([true, false]);
     const [foto, setFoto] = useState(seta)
-
-
 
     function novo_array() {
         const novo_aparece = [...aparece]
@@ -35,22 +35,18 @@ export default function Pergunta({ pergunta, index }) {
     function aparecepergunta(imagem) {
         if (imagem === seta || imagem === virar) {
             if (aparece[0] === false && aparece[1] === false) {
-                direcao = 'column'
-                espaco = 'space-evenly'
+                setDirecao('column')
+                setEspaco('space-evenly')
             } else {
-                direcao = 'normal'
-                espaco = 'space-between'
-            }
-            if (aparece[0] === true && aparece[1] === false) {
-                margem = '18px'
+                setDirecao('normal')
+                setEspaco('space-between')
             }
 
-            console.log(margem)
-            color = '#333333'
-            decoracao = 'normal'
+            setColor('#333333')
+            setDecoracao('normal')
+            setTamanho('23px');
             const novo_aparece = novo_array()
             const novo_foto = novo_aparece[0] ? seta : (novo_aparece[1] ? false : virar);
-            tamanho = '23px';
             setFoto(novo_foto)
             setAparece(novo_aparece)
         }
@@ -60,50 +56,51 @@ export default function Pergunta({ pergunta, index }) {
     function verSeErrou() {
         const novo_indice = 0;
         const novo_aparece = [true, false]
-        direcao = 'normal'
-        espaco = 'space-between'
+        setDirecao('normal')
+        setEspaco('space-between')
         const nova_foto = imagens[novo_indice]
-        color = '#FF3030';
-        decoracao = 'line-through'
+        setColor('#FF3030')
+        setDecoracao('line-through')
         setFoto(nova_foto)
         setAparece(novo_aparece)
         setIndice(novo_indice)
+        setContagem(contagem+1)
 
     }
 
     function verSeQuase() {
         const novo_indice = 1;
-        direcao = 'normal'
-        espaco = 'space-between'
+        setDirecao('normal')
+        setEspaco('space-between')
         const novo_aparece = [true, false]
         const nova_foto = imagens[novo_indice]
-        color = '#FF922E';
-        decoracao = 'line-through'
+        setColor('#FF922E')
+        setDecoracao('line-through')
         setFoto(nova_foto)
         setAparece(novo_aparece)
         setIndice(novo_indice)
-
+        setContagem(contagem+1)
     }
 
     function verSeAcertou() {
         const novo_indice = 2;
-        direcao = 'normal'
-        espaco = 'space-between'
+        setDirecao('normal')
+        setEspaco('space-between')
         const novo_aparece = [true, false]
         const nova_foto = imagens[novo_indice]
-        color = '#2FBE34';
-        decoracao = 'line-through'
+        setColor('#2FBE34')
+        setDecoracao('line-through')
         setFoto(nova_foto)
         setAparece(novo_aparece)
         setIndice(novo_indice)
-
+        setContagem(contagem+1)
     }
     return (
-        <Question aparece={aparece} tamanho={tamanho} color={color} decoracao={decoracao} direcao={direcao} espaco={espaco} margem={margem}>
+        <Question aparece={aparece} tamanho={tamanho} color={color} decoracao={decoracao} direcao={direcao} espaco={espaco} data-test="flashcard">
 
             <h2>{aparece[0] ? `Pergunta ${index + 1}` : (aparece[1] ? pergunta.answer : pergunta.question)}</h2>
 
-            {foto ? <img src={indice === -1 ? foto : imagens[indice]} onClick={() => aparecepergunta(foto)} alt="seta" /> : <Botoes><button onClick={verSeErrou}>Não lembrei</button> <button onClick={verSeQuase}>Quase não lembrei</button> <button onClick={verSeAcertou}>Zap!</button></Botoes>}
+            {foto ? <img src={indice === -1 ? foto : imagens[indice]} onClick={() => aparecepergunta(foto)} alt="seta" /> : <Botoes data-test="play-btn"><button onClick={verSeErrou}>Não lembrei</button> <button onClick={verSeQuase}>Quase não lembrei</button> <button onClick={verSeAcertou}>Zap!</button></Botoes>}
 
         </Question>
     )
