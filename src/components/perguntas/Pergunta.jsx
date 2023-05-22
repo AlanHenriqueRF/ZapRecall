@@ -102,7 +102,7 @@ export default function Pergunta({ pergunta, index ,setContagem,contagem}) {
         setTest("zap-icon")
     }
     return (
-        <Question aparece={aparece} tamanho={tamanho} color={color} decoracao={decoracao} direcao={direcao} espaco={espaco} data-test="flashcard">
+        <Question data-test="flashcard-text" aparece={aparece} tamanho={tamanho} color={color} decoracao={decoracao} direcao={direcao} espaco={espaco} >
 
             <h2>{aparece[0] ? `Pergunta ${index + 1}` : (aparece[1] ? pergunta.answer : pergunta.question)}</h2>
 

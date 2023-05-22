@@ -4,7 +4,7 @@ import deck from "../Deck"
 export default function Footer({contagem}){
     return (
         <Conclusionbar data-test="footer">
-            <h3>{contagem}/{deck.length} teste CONCLUÍDOS</h3>
+            <h3>{contagem}/{deck.length} CONCLUÍDOS</h3>
         </Conclusionbar>
     )
 }
