@@ -6,7 +6,6 @@ import { useState } from 'react'
 
 export default function App() {
   const [contagem,setContagem] = useState(0)
-  // console.log(setContagem)
   return (
     <Container>
       <Menu_box>
